@@ -1,4 +1,3 @@
-
 .PHONY: install
 install: ## Install dependencies and setup pre-commit hooks
 	@echo "🚀 Installing dependencies from lockfile"
@@ -13,6 +12,14 @@ lint: ## Run ruff linter
 format: ## Format code and fix linting issues
 	uv run ruff format
 	uv run ruff check --fix
+
+# Build the Docker image
+docker-build:
+	docker build -t amazon-reviews-analysis .
+
+# Run the Docker container
+docker-run:
+	docker run --rm amazon-reviews-analysis
 
 .PHONY: help
 help: ## Show this help message

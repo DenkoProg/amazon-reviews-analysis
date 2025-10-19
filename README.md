@@ -1,4 +1,4 @@
-# Python Repo Template
+# Amazon Reviews Analysis
 
 ## ⚙️ Installation
 
@@ -7,8 +7,8 @@
 #### 1. Clone the repository
 
 ```bash
-git clone REPO_NAME
-cd REPO_NAME
+git clone https://github.com/DenkoProg/amazon-reviews-analysis.git
+cd amazon-reviews-analysis
 ```
 
 #### 2. Install `uv` — A fast Python package manager
@@ -68,3 +68,21 @@ uv pip install -e .[dev]
 ```
 
 > These behave like regular pip installs and ignore uv.lock.
+
+### 🐳 Docker Usage
+
+You can build and run the project using Docker:
+
+#### 1. Build the Docker image
+
+```bash
+make docker-build
+```
+
+#### 2. Run the Docker container
+
+```bash
+make docker-run
+```
+
+This will execute `main.py` inside the container using all dependencies and Java for PySpark.
