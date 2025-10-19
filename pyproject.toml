@@ -1,7 +1,7 @@
 [project]
-name = "python-repo-template"
+name = "amazon-reviews-analysis"
 version = "0.1.0"
-description = "Description"
+description = "Analysis of Amazon reviews using PySpark."
 readme = "README.md"
 requires-python = ">=3.11"
 
