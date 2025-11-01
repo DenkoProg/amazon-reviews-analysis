@@ -1,11 +1,12 @@
 [project]
-name = "python-repo-template"
+name = "amazon-reviews-analysis"
 version = "0.1.0"
-description = "Description"
+description = "Analysis of Amazon reviews using PySpark."
 readme = "README.md"
 requires-python = ">=3.11"
 
 dependencies = [
+    "pyspark",
     "rootutils",
 ]
 
@@ -18,9 +19,9 @@ dev = [
     "ruff",
 ]
 
-# [build-system]
-# requires = ["hatchling"]
-# build-backend = "hatchling.build"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.pytest.ini_options]
 python_files = ["test_*.py", "*_test.py"]
