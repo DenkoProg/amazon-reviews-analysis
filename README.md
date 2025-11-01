@@ -27,6 +27,7 @@ Alternatively, you can use the predefined Makefile command:
 ```bash
 make install
 ```
+
 This will set up the virtual environment, install dependencies, and configure pre-commit hooks automatically.
 
 #### 4. Install dependencies (choose ONE path)
