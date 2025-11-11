@@ -10,7 +10,7 @@ dependencies = [
     "rootutils",
 ]
 
-[dependency-groups]
+[project.optional-dependencies]
 dev = [
     "ipykernel",
     "mypy",
