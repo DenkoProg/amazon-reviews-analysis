@@ -87,3 +87,16 @@ make docker-run
 ```
 
 This will execute `main.py` inside the container using all dependencies and Java for PySpark.
+
+## 📊 Project Structure
+
+### Pipelines
+
+#### 0-preprocess
+
+The preprocessing pipeline contains Jupyter notebooks for data exploration, cleaning, and business analysis across multiple product categories:
+
+- **EDA & Cleaning Notebooks** (`*_eda_and_cleaning.ipynb`): Exploratory Data Analysis (EDA) and data cleaning for each category (e.g., Musical Instruments, All Beauty, Amazon Fashion, etc.)
+- **Queries Notebooks** (`*_queries.ipynb`): Answer business questions and perform domain-specific analysis for each category
+
+Each category has its own pair of notebooks to facilitate modular and category-specific analysis workflows.
