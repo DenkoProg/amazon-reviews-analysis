@@ -10,7 +10,10 @@ def build_spark(app_name: str = "AmazonReviews") -> SparkSession:
     Create a SparkSession configured for stable JSON ingestion.
     Case sensitivity ON prevents collisions like 'Color' vs 'color'.
     """
-    return SparkSession.builder.appName(app_name).config("spark.sql.caseSensitive", "true").getOrCreate()
+    return SparkSession.builder.appName(app_name)\
+        .config("spark.sql.caseSensitive", "true")\
+        .config("spark.driver.memory", "4g")\
+        .config("spark.executor.memory", "4g").getOrCreate()
 
 
 def load_reviews(spark: SparkSession, path: str | Path):
