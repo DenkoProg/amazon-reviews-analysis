@@ -100,3 +100,78 @@ The preprocessing pipeline contains Jupyter notebooks for data exploration, clea
 - **Queries Notebooks** (`*_queries.ipynb`): Answer business questions and perform domain-specific analysis for each category
 
 Each category has its own pair of notebooks to facilitate modular and category-specific analysis workflows.
+
+#### 1-train
+
+The training pipeline contains notebooks for fitting both classification and regression models on the processed Amazon reviews data.
+
+**Classification training (`pipelines/1-train`):**
+
+- `classification_training_lr.ipynb` – trains a **Logistic Regression** sentiment classifier (negative / neutral / positive) using TF–IDF text features.
+- `classification_training_rf.ipynb` / `classification_training_random_forest.ipynb` – train **Random Forest** classifiers for comparison with LR.
+- `classification_training_svm.ipynb` and `classification_training_svm-my.ipynb` – train **SVM-based** classifiers (LinearSVC + One-vs-Rest).
+
+**Regression training (`pipelines/1-train`):**
+
+- `linear_regression.ipynb` – trains a baseline **Linear Regression** model.
+- `random_forest_regression.ipynb` – trains a **Random Forest Regressor**.
+- `gbt_regression.ipynb` – trains a **Gradient-Boosted Trees Regressor**.
+- `DT_regression.ipynb` – trains a **Decision Tree Regressor**.
+
+#### 2-eval
+
+The evaluation pipeline provides notebooks to assess and compare trained models.
+
+**Classification evaluation (`pipelines/2-eval`):**
+
+- `classification_eval.ipynb` – loads the trained classification models and evaluates them on a held-out test set using:
+
+  - Accuracy
+  - F1 score
+  - Weighted precision
+  - Weighted recall
+  - Confusion matrices and per-class metrics
+- Includes visualizations (e.g., bar plots) for side-by-side comparison of **Logistic Regression**, **Random Forest**, and **SVM** classifiers.
+
+**Regression evaluation (`pipelines/2-eval`):**
+
+- `regression_eval_linear.ipynb`
+- `regression_eval_rf.ipynb`
+- `regression_eval_gbt.ipynb`
+- `regression_eval_DT.ipynb`
+
+Each notebook:
+
+- Loads the corresponding regression model.
+- Evaluates performance using metrics such as RMSE, MAE, and R².
+- Provides plots and tables that help compare predictive quality across models.
+
+These notebooks are intended for **model selection**, benchmarking, and reporting.
+
+#### 3-infer
+
+The inference pipeline shows how to use trained models for predictions on new or unseen data.
+
+**Classification inference (`pipelines/3-infer`):**
+
+- `classification_inference_lr.ipynb` – demonstrates how to:
+
+  - Load the saved Logistic Regression classifier.
+  - Run predictions on custom review texts.
+  - Interpret the predicted sentiment labels.
+- (You can add similar notebooks for RF / SVM if needed, following the same pattern.)
+
+**Regression inference (`pipelines/3-infer`):**
+
+- `regression_inference_linear.ipynb`
+- `regression_inference_rf.ipynb`
+- `regression_inference_gbt.ipynb`
+- `regression_inference_DT.ipynb`
+
+These notebooks:
+
+- Load the corresponding regression models.
+- Show how to build a Spark DataFrame with new input samples.
+- Generate predictions (e.g., for review rating or target variable) and interpret the outputs.
+
+The `3-infer` stage is focused on **practical usage** of the models – integrating them into workflows, demos, or downstream applications.
